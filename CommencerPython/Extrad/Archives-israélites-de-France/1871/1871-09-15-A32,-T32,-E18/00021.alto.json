@@ -1,0 +1,156 @@
+{
+    "processes": [
+        "all"
+    ],
+    "documents": [
+        {
+            "id": "4656110",
+            "publication_date": "1871-09-15",
+            "publication_title": "Archives israélites de France",
+            "pages": [
+                {
+                    "id": "PAG_00000021",
+                    "width": 2216,
+                    "height": 3443,
+                    "blocks": [
+                        {
+                            "id": "PAG_00000021_TB000001",
+                            "vpos": 243,
+                            "hpos": 204,
+                            "width": 1586,
+                            "height": 64,
+                            "word_offset": 0,
+                            "word_count": 3,
+                            "font_size": 9,
+                            "text": "ARCHIVES ISRAÉLITES 277"
+                        },
+                        {
+                            "id": "PAG_00000021_TB000002",
+                            "vpos": 327,
+                            "hpos": 204,
+                            "width": 1586,
+                            "height": 990,
+                            "word_offset": 3,
+                            "word_count": 184,
+                            "font_size": 10,
+                            "text": "de solennité par le cardinal vicaire-général Patrizi à Saint-Jean de Latran, et resta depuis ce temps dans le couvent. Il ne fut plus question de mariage, et même d’après le dire des sonnes, Enrichetta aurait été appelée à prendre le voile si les canons italiens n avaient point contrecarré ce plan le 20 septembre. Le père demanda donc au nouveau gouvernement l’extradition de sa fille, et le tribunal civil ainsi que la cour d’appel le lui accorda immédiatement. L autorité cléricale du couvent cependant ne voulut point reconnaître la décision des tribunaux, et on se vit obligé d avoir recours a la force pour la faire exécuter. Après donc qu’on eût enfoncé sept portes, on enleva Enrichetta, que l’on conduisit en compagnie de deux sonnes à la préfecture de police. Là, le sentiment filial l’emporta bien vite sur les pieuses exhortations des sonnes, la juive quitta ses habits de religieuse et la ville sainte, retourna avec son père dans sa famille, et abjurera probabêlement sous peu une religion qu'elle n’avait embrassée que pour hâter un mariage d’inclination. (Journal de Trieste.)"
+                        },
+                        {
+                            "id": "PAG_00000021_TB000003",
+                            "vpos": 1542,
+                            "hpos": 766,
+                            "width": 497,
+                            "height": 71,
+                            "word_offset": 187,
+                            "word_count": 1,
+                            "font_size": 13,
+                            "text": "BEAUX-ARTS"
+                        },
+                        {
+                            "id": "PAG_00000021_TB000004",
+                            "vpos": 1734,
+                            "hpos": 297,
+                            "width": 1420,
+                            "height": 226,
+                            "word_offset": 188,
+                            "word_count": 11,
+                            "font_size": 10,
+                            "text": "QUELQUES PAGES DE CRITIQUE ET D’HISTOIRE SUR LA MUSIQUE DES JUIFS"
+                        },
+                        {
+                            "id": "PAG_00000021_TB000005",
+                            "vpos": 2089,
+                            "hpos": 221,
+                            "width": 1575,
+                            "height": 153,
+                            "word_offset": 199,
+                            "word_count": 7,
+                            "font_size": 10,
+                            "text": "I coup d’oeil d’ensemble sur l'histoire musicale"
+                        },
+                        {
+                            "id": "PAG_00000021_TB000006",
+                            "vpos": 2242,
+                            "hpos": 221,
+                            "width": 1575,
+                            "height": 612,
+                            "word_offset": 206,
+                            "word_count": 111,
+                            "font_size": 9,
+                            "text": "d’après la bible Si les preuves authentiques font défaut pour tracer l’histoire de la Musique des Juifs, en revanche les dissertations et les commentaires qui ont été écrits sur ce sujet sont en nombre immense, et si l’on pouvait s’en rapporter à ces ouvrages, on n’aurait que l’embarras du choix. Une foule d’écrivains, de philosophes, de penseurs, de théologiens et d’artistes, parmi lesquels on distingue particulièrement les P. Mersenne, Kircher et Martini; D. Calmet, Pfeiffer, Forkel et en dernier lieu M. Fétis, ont publié d’innombrables velues qui n’ont pas fait avancer la question d’un pas. La légion des commentateurs et leurs élucubrations n’ont servi qu’à épaissir les ténèbres qui envie-"
+                        },
+                        {
+                            "id": "PAG_00000021_TB000007",
+                            "vpos": 2897,
+                            "hpos": 262,
+                            "width": 1174,
+                            "height": 67,
+                            "word_offset": 317,
+                            "word_count": 10,
+                            "font_size": 8,
+                            "text": "(2) Voy. Archives Israélites, année 1871, numéro du 15 août."
+                        }
+                    ],
+                    "visual_elements": [
+                        {
+                            "type": "graphical_element",
+                            "id": "PAG_00000021_GE000001",
+                            "height": 16,
+                            "width": 1155,
+                            "vpos": 0,
+                            "hpos": 1061
+                        },
+                        {
+                            "type": "graphical_element",
+                            "id": "PAG_00000021_GE000002",
+                            "height": 327,
+                            "width": 53,
+                            "vpos": 0,
+                            "hpos": 60
+                        },
+                        {
+                            "type": "graphical_element",
+                            "id": "PAG_00000021_GE000003",
+                            "height": 14,
+                            "width": 430,
+                            "vpos": 1412,
+                            "hpos": 415
+                        },
+                        {
+                            "type": "graphical_element",
+                            "id": "PAG_00000021_GE000004",
+                            "height": 16,
+                            "width": 389,
+                            "vpos": 1415,
+                            "hpos": 1207
+                        },
+                        {
+                            "type": "graphical_element",
+                            "id": "PAG_00000021_GE000005",
+                            "height": 6,
+                            "width": 188,
+                            "vpos": 1654,
+                            "hpos": 912
+                        },
+                        {
+                            "type": "graphical_element",
+                            "id": "PAG_00000021_GE000006",
+                            "height": 6,
+                            "width": 475,
+                            "vpos": 2006,
+                            "hpos": 777
+                        },
+                        {
+                            "type": "illustration",
+                            "id": "PAG_00000021_IL000001",
+                            "height": 78,
+                            "width": 1184,
+                            "vpos": 1364,
+                            "hpos": 412
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

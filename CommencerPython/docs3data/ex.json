@@ -1,0 +1,374 @@
+{
+    "processes": [
+        "all"
+    ],
+    "documents": [
+        {
+            "id": "5622960",
+            "publication_date": "1939-01-19",
+            "publication_title": "À la page",
+            "pages": [
+                {
+                    "id": "PAG_00000009",
+                    "width": 5024,
+                    "height": 6832,
+                    "blocks": [
+                        {
+                            "id": "PAG_00000009_TB000001",
+                            "vpos": 550,
+                            "hpos": 1007,
+                            "width": 84,
+                            "height": 57,
+                            "word_offset": 0,
+                            "word_count": 1,
+                            "font_size": -1,
+                            "text": "io"
+                        },
+                        {
+                            "id": "PAG_00000009_TB000002",
+                            "vpos": 514,
+                            "hpos": 2394,
+                            "width": 376,
+                            "height": 65,
+                            "word_offset": 1,
+                            "word_count": 3,
+                            "font_size": -1,
+                            "text": "A LA PAGE"
+                        },
+                        {
+                            "id": "PAG_00000009_TB000003",
+                            "vpos": 6249,
+                            "hpos": 2596,
+                            "width": 78,
+                            "height": 58,
+                            "word_offset": 4,
+                            "word_count": 2,
+                            "font_size": -1,
+                            "text": "4 2"
+                        },
+                        {
+                            "id": "PAG_00000009_TB000004",
+                            "vpos": 713,
+                            "hpos": 1955,
+                            "width": 2018,
+                            "height": 225,
+                            "word_offset": 6,
+                            "word_count": 4,
+                            "font_size": -1,
+                            "text": "DU SAC POS AI"
+                        },
+                        {
+                            "id": "PAG_00000009_TB000005",
+                            "vpos": 671,
+                            "hpos": 4127,
+                            "width": 381,
+                            "height": 254,
+                            "word_offset": 10,
+                            "word_count": 3,
+                            "font_size": -1,
+                            "text": "ROMAN POLICIER INÉDIT"
+                        },
+                        {
+                            "id": "PAG_00000009_TB000006",
+                            "vpos": 667,
+                            "hpos": 652,
+                            "width": 1152,
+                            "height": 376,
+                            "word_offset": 13,
+                            "word_count": 1,
+                            "font_size": -1,
+                            "text": "|'af|-aire"
+                        },
+                        {
+                            "id": "PAG_00000009_TB000007",
+                            "vpos": 1126,
+                            "hpos": 658,
+                            "width": 1272,
+                            "height": 5084,
+                            "word_offset": 14,
+                            "word_count": 776,
+                            "font_size": -1,
+                            "text": "RÉSUMÉ Un accident de route ratnène l’attention de Barrai sur le dénommé Ricou, autrefois inculpé dans l’affaire du sac postal, mais acquitté. ♦ ♦ ♦ Le commissaire Mauger eut un soupir de sou lagement, car il avait envisagé le pire. Il désigna le corps au docteur. —Voyez-îe vite, je vous prie. Le praticien se pencha, tâta longuement Barrai, l’ausculta, autant qu’il le put dans cette posi tion peu adéquate, puis se releva. — Alors? interrogea le commissaire. — Anesthésié !... — Pas grave ? — Je ne pense pas. Sa respiration est régulière, et si je veux ajouter quelque signification au ravivement de ses joues, ce patient doit bientôt s’éveiller. Au fait, qui est cet homme? — Un de mes collaborateurs. — Voulez-vous que nous le descendions à mon cabinet ? — Non, restez ici, j’ai encore besoin de vous, docteur. — Mais..., ma consultation ? — Vos malades attendront. — Je n’ai plus rien à faire ici. — Je regrette infiniment, docteur. Moi, j’estime votre présence encore indispensable. Vous prétendez que mon inspecteur a été anesthésié ?... — C’est incontestable. — Avec quoi ? — Au chloroforme... Mauger ricana : — C’est tout ?... — Sans aucun doute ! Vous n’avez qu’à flairer la face du patient pour vous en convaincre. — Et c’est cela qui le laisse dans cet état, uniquement cela ? — Naturellement... Vous ne sentez pas l’odeur qui flotte dans cette pièce ?... C’est grâce à sa forte consti tution que votre homme doit de n’avoir pas été endormi plus profondément. Ce disant, le docteur était allé ouvrir la fenêtre. — Peut-être. Mais vous n’avez pas vu, docteur, que cet homme est blessé ? — Certes non... — Etendons-le sur ce divan, voulez-vous ? Il y sera tout de même mieux que par terre. Ils prirent le corps de Barrai et l’étendirent précau tionneusement... — Alors, docteur, qu’est-ce que cela ? fit Mauger, très calme, en désignant du doigt une déchirure du veston, à l’épaule... — Un accroc ! — ... A votre perspicacité, docteur !... — Je ne suis pas policier... Et le praticien cachait mal son étonnement. — Voyons, fit le commissaire d’un ton bourru, ne vous fâchez pas ! J’ai voulu dire simplement par là que ce léger détail vous avait échappé. — Chacun son métier, n’est-ce pas ? — Certes !... fit Mauger en chantonnant, tandis qu’il tâtait l’épaule de Barrai. Sans doute cherchait-il a surprendre une crispation de douleur sur le visage immobile de son collègue, c’est du n.oins ce que comprit le docteur qui lui dit : — Il ne peut rien sentir, puisqu’il est endormi. — C’est juste !... Mais voyez donc vous-même. Le docteur, aidé du policier, réussit à tirer le bras de Barrai hors de la manche de son veston ; un coup de ciseau dans le tissu de la chemise et l’épaule apparut. Une éraflure de deux centimètres apparut. De suite elle s’avéra sans profondeur et partant sans danger. Le sang n’avait pas coulé et le peu qui s’était échappé de l’estafilade s’était aussitôt coagulé en croûte. — Rien de grave, comme vous voyez ! fit le docteur. - C’est une balle qu’il serait utile de retrouver, car elle doit être semblable à celles que Ricou a tirées, en bas, sur les agents... Le commissaire arpenta la pièce. — Voyons, fit-il au bout d'un moment, raisonnons. Barrai . certainement été surpris, car il conversait depuis de longues minutes avec Ricou. C’est au cours de cet entretien, je suppose, qu’un complice, averti par un moyen qui nous reste à trouver, fit irruption dans ce bureau et assaillit l’inspecteur. A mon avis, il n’eut pas le temps de voir d’où venait l’attaque, ni de se défendre, l'autre lui ayant déjà appliqué le tampon d’ouate chloroformée sur le visage. Ce que je ne m’explique pas, c’est le coup de feu... Pourquoi ont-ils tiré sur lui alors qu’il était anesthésié ? —■ La balle a effleuré les chairs de bas en haut. — Cela se voit aussi à a déchirure du veston. C’est donc que Barrai était debout et l’un de ses agresseurs à terre. — Cela a pu se produire avant l'intervention du com plice !... Mauger réfléchit un instant . — Pas si bête que cela, docteur. Et Ricou, se sen tant maîtrisé, a fait feu sur le policier qui, surpris, dut lâcher prise. A ce moment, le complice, averti par le coup de feu, pénétrait, sautait sur Barrai et l’anesthé siait. C’est aussi ce coup de feu qui a alerté la con cierge. Naturellement, docteur, vous n’avez rien entendu ? — Absolument rien, sans quoi je me serais porté aus"
+                        },
+                        {
+                            "id": "PAG_00000009_TB000008",
+                            "vpos": 1125,
+                            "hpos": 1977,
+                            "width": 1242,
+                            "height": 2811,
+                            "word_offset": 790,
+                            "word_count": 439,
+                            "font_size": -1,
+                            "text": "sitôt au secours de la victime. Et puis, j’étais à ce moment dans mon laboratoire de radioscopie... — Oouais !... Drôle de maison !... renchérit Mauger pour lui-même... Les joues de Barrai rosissaient légèrement. — Ça peut durer combien de temps ? interrogea Mauger. — Plusieurs heures !... Tout dépend de. la dose administrée. — C’est bien notre chance !... • —- Des pas se faisaient entendre dans l’escalier, on montait et bientôt le commissaire de police du quartier faisait son entrée, accompagné de deux agents et de la concierge, véritable loque tremblante tant elle avait peur. — Alors, interrogea Mauger, l’avez-vous ? — Pas encore, on le poursuit. C’est une véritable chasse à l’homme... * — En somme, il vous a glissé entre les pattes. — Dame, il. y avait- un taxi juste devant la porte. — Je sais, le mien 1... — Le chauffeur, las d’attendre, se dégourdissait les jambes, comme on dit, en marchant sur le trottoir. — Alors ? — Alors l’individu irrupta de la maison et après avoir déchargé sur nous son browning, sans résultat heureu sement, sauta sur le siège du taxi et démarra. Si nous avions eu une auto à proximité il n'aurait pu aller bien loin, mais il nous a fallu gagner le boulevard où nous avons réquisitionné un autre taxi. — Mais votre voiture ? demanda Mauger. — Je l’avais aussitôt renvoyée pour chercher un médecin. — Et l’homme court toujours ?... — Actuellement deux inspecteurs le poursuivent. Il a filé en direction du square d'Anvers. ’ — Mes compliments,. vous avez bien travaillé !... — Oh ! n’ironis'ez pas, Monsieur Mauger, vous-même n’auriez pu agir autrement. — Oouais !... C’est possible, après tout. Le commissaire du quartier s’était penché sur le corps toujours endormi. —• Mais je ne rêve pas, on dirait Barrai ! émit-il étonné. — C’est lui, en effet, et le docteur ici présent, que j’ai trouvé dans la maison, s’efforce de le réveiller. — Blessé ? — Très légèrement mais profondément endormi. Anesthésié, quoi, au chloroforme. Au fait, cher ami, ir y avait dans l’escalier un second blessé qui a disparu. Il serait sans doute intéressant de le retrouver. Puisque vous êtes monté par l’escalier, vous avez dû remarquer les traces de sang. — J’allais justement vous en demander la raison. — Vous la connaissez maintenant, aussi je vous demande de faire fouiller la maison par vos hommes. Blessé comme il était, il n’a pu aller bien loin. Le commissaire donna un ordre et aussitôt les agents sortirent. Seuls restaient maintenant dans la pièce les deux commissaires, le docteur, la malheureuse concierge et Barrai, toujours éndormi."
+                        },
+                        {
+                            "id": "PAG_00000009_TB000009",
+                            "vpos": 3999,
+                            "hpos": 2008,
+                            "width": 1239,
+                            "height": 2200,
+                            "word_offset": 1229,
+                            "word_count": 337,
+                            "font_size": -1,
+                            "text": "CHAPITRE V Chasse à i’homme... Arrivé boulevard Rochechouart, Ricou, après avoir faussé compagnie à ses indésirables visiteurs, vira autour du square, le long du collège, et prit l’avenue Trudaine. Là il laissa le taxi, traversa le jardin sans se hâter afin de ne pas attirer l’attention, franchit la chaussée et s'engouffra dans le métro. Tout en descendant les marches il pouvait percevoir les coups de sifflet des inspecteurs lancés à t ses trousses. Il sourit, satisfait, dans le fond, d’en être quitte à si bon compte... Ses poursuivants, distancés dès le début, n’avaient pas vu le manège, aussi ne furent-ils pas peu surpris de voir le taxi qu’ils pourchassaient tranquillement arrêté au bord du trottoir, dans l’avenue. Ils se précipitèrent, mais l’auto était vide : l’oiseau s’était envolé. Quelques instants ils explorèrent les environs sans résultat et revinrent bredouilles en ramenant l’auto retrouvée. Pendant ce temps, Ricou avait pu gagner Pigalle, puis la gare Saint-Lazare. A dire vrai, nul ne pouvait se douter en voyant' ce voyageur souriant et tranquille qu’il s’agissait là d’un dangereux gangster. A Saint-Lazare il sortit du métro, resta un instant indécis et pénétra chez un chapelier afin de se nantir d'un feutre, car il était tête nue. Il acheta aussi, dans un grand magasin proche, un imperméable beige, et une paire de lunettes qui, sarts l'avantager, le rendaient plus difficilement reconnaissable. Chez un coiffeur il se fit raser la moustache, qu’il portait « à l’américaine », puis, ceci fait et ainsi transformé, il s’installa dans un café discret, afin de réfléchir. Sa situation n’était guère réjouissante, traqué par la police qui, s’il ne s’éloignait aussitôt, ne tarderait pas à le retrouver. Tout en dégustant un apéritif il soliloquait in petto : — Il me faut rapidement prendre le large, pensait-il. Si je vais en Suisse ou en Belgique, je risque d’être arrêté à la frontière où je serais attendu. Cela ne fait pas l’ombre d’un doute !... Même là-bas, en admettant que je réussisse à passer, il me sera difficile de retrouver"
+                        },
+                        {
+                            "id": "PAG_00000009_TB000010",
+                            "vpos": 1060,
+                            "hpos": 3444,
+                            "width": 1079,
+                            "height": 106,
+                            "word_offset": 1566,
+                            "word_count": 3,
+                            "font_size": -1,
+                            "text": "de CHARLES MARCELLU5"
+                        },
+                        {
+                            "id": "PAG_00000009_TB000011",
+                            "vpos": 1250,
+                            "hpos": 3442,
+                            "width": 1071,
+                            "height": 169,
+                            "word_offset": 1569,
+                            "word_count": 9,
+                            "font_size": -1,
+                            "text": "Ce roman tait partie des enquêtes de l’inspecteur Barrai."
+                        },
+                        {
+                            "id": "PAG_00000009_TB000012",
+                            "vpos": 1485,
+                            "hpos": 3301,
+                            "width": 1244,
+                            "height": 3371,
+                            "word_offset": 1578,
+                            "word_count": 601,
+                            "font_size": -1,
+                            "text": "mon argent sans .me. faire connaître : je serai pris et ce sera l’extradition... Si :e cherche à gagner l’Angle terre ou les Etats-Unis, c’est tout comme 'et avec plus de difficultés n’ayant pas de passeport... En définitive et tout bien pesé, il pensa qu’il était préférable pour lui de rester à Paris ou dans quelque banlieue discrète où il pourra - attendre facilement le moment propice pour filer à l’ètrangér.. Après avoir réfléchi un long moment encore, c’est cette dernière solution, qu’il choisit. Il paya et sortit du café. A la gare Saint-Lazare il prit un billet pour SaintGermain, où il pensait trouver facilement asile. En traversant le hal!, tout empli de son brouhaha habituel, il acheta un journal. Deux hommes qu'il croisa le dévi sagèrent et involontairement il détourna son regard, tandis qu’un frisson lui parcourait le dos. Sa liberté résidait seule maintenant en la rapidité avec laquelle il disparaîtrait. Il pensa couriF et pressait nerveusement de sa main moite son revolver. Mais il se souvint qu’il était déchargé. Alors, paralysé qu’il était par la crainte, il ne bougea pas .et les deux hommes s’éloignèrent... I! gagna le quai, sauta dans le train où il épongea son front trempé de sueur et, quelque dix minutes plus tard, il débarquait dans la paisible et coquette cité qu ’est Saint-Germain-en-Laye... — Dans le fond, pensait-il, je l’ai échappée belle. Ce « roussin » a découvert ie pot aux roses et j’ai bien failli me faire coffrer une fois de plus. Heureusement que Paul était là, et à part qu’il s’est mis à crier comme un idiot quand il m’a vu dans l’ascenseur tout s’est bien passé. J’ai l’impression qu’il a eu son compte et qu'il ne pourra me « donner » maintenant... Arrivé à Saint-Germain il entra dans un café où il prit une consommation, pour se donner du courage, puis une autre avec un client qui lui indiqua, sur sa demande, un petit hôtel pour passer la nuit. Un tantinet gris, il se disposait à prendre congé quand une idée lui vint, idée absurde en vérité, comme en ont souvent les criminels qui se font parfois cueillir sur les lieux de leur crime, qu’ils ont voulu revoir. Il voulut téléphoner chez lui, pour savoir... II appela donc son numéro et, comme la sonnerie grêlait sans succès, s’impatienta. — Suis-je bête, se dit-il, il n’y a personne !... Mais une voix répondit. — Allô ! cria-t-il, Monsieur Ricou ? — M. Ricou n’est pas .à pour l’instant; c’est de la part de qui ? Il faillit pouffer, ne sachant trop quoi répondre, mais il lança pour dire quelque chose : — De son avocat, Mc Thonon de la Risse... — Ah ! fort bien, fit la voix au bout du fil ; c’est lui-même ? — Parfaitement, lui-même !... — Parfait ! Passez donc nous voir tout de suite, cher maître !... Les buées de l’ivresse lui emplissaient la tête, omnur bilant son cerveau. Sans trop savoir pourquoi, il se mit à rire bruyamment. — A qui ai-je l’honneur moi-même ? ajouta-t-il la voix empâtée. — Mais... à l’inspecteur Barrai, en personne... ' Et la voix ajouta : — Vous êtes très fort, mais pas très malin, Ricou, votre avocat est justement ici Sans dire un mot de plus, le bandit raccrocha, haussa les épaules, sortit de la cabine et, pour se consoler, reprit un autre verre avec son compagnon de fortune, lequel était employé à la gare. Puis, accompagné de ce dernier, il se rendit à l’hotel qui lui avait été indiqué pour y passer la nuit."
+                        },
+                        {
+                            "id": "PAG_00000009_TB000013",
+                            "vpos": 4873,
+                            "hpos": 3336,
+                            "width": 1224,
+                            "height": 1303,
+                            "word_offset": 2179,
+                            "word_count": 218,
+                            "font_size": -1,
+                            "text": "Moins d’une heure après, l’inspecteur Barra! et le commissaire Mauger sautaient de voiture devant le café où avait consommé le bandit. Il leur avait été facile de connaître, par le central, l’origine de la communication téléphonique. Ainsi avaient-ils appris qu’elle émanait, par l’Inter, d’un éta blissement de Saint-Germain. Aussitôt ils avaient frété une voiture qui, à toute vitesse, avait rejoint la ville où Ricou se prélassait, fier de sa journée et heureux de sa liberté. Quand ils entrèrent dans 'a salle, Ricou n’y était pas, mais ils interrogèrent aussitôt le patron et les garçons en donnant du fugitif un signalement précis : — Un homme en veston, sans chapeau, 35 ans au plus, portant une petite moustache à l’américaine. Comme corpulence, grand et fort. — A cette heure nous servons de nombreux clients, dit le patron, c'est l’arrivée des trains de Paris, alors !... Evidemment, les recherches s’avéraient difficiles. — Voyons, fit Barrai, cet homme a téléphoné à Paris il y a une heure tout au plus. — En effet, un client nous a demandé le téléphone, mais il r.e répondait pas, autant que je puisse me sou venir, au signalement que vous donnez, dit à son tour le garçon de comptoir. Il avait un chapeau, un manteau de couleur indécise, beige peut-être, et des lunettes. tA suivre.)"
+                        }
+                    ],
+                    "visual_elements": [
+                        {
+                            "type": "graphical_element",
+                            "id": "PAG_00000009_GE000001",
+                            "height": 1,
+                            "width": 62,
+                            "vpos": 0,
+                            "hpos": 2
+                        },
+                        {
+                            "type": "graphical_element",
+                            "id": "PAG_00000009_GE000002",
+                            "height": 11,
+                            "width": 156,
+                            "vpos": 209,
+                            "hpos": 4843
+                        },
+                        {
+                            "type": "graphical_element",
+                            "id": "PAG_00000009_GE000003",
+                            "height": 25,
+                            "width": 1599,
+                            "vpos": 522,
+                            "hpos": 2894
+                        },
+                        {
+                            "type": "graphical_element",
+                            "id": "PAG_00000009_GE000004",
+                            "height": 20,
+                            "width": 1033,
+                            "vpos": 543,
+                            "hpos": 1227
+                        },
+                        {
+                            "type": "graphical_element",
+                            "id": "PAG_00000009_GE000005",
+                            "height": 10,
+                            "width": 211,
+                            "vpos": 562,
+                            "hpos": 659
+                        },
+                        {
+                            "type": "graphical_element",
+                            "id": "PAG_00000009_GE000006",
+                            "height": 24,
+                            "width": 1597,
+                            "vpos": 540,
+                            "hpos": 2895
+                        },
+                        {
+                            "type": "graphical_element",
+                            "id": "PAG_00000009_GE000007",
+                            "height": 17,
+                            "width": 1032,
+                            "vpos": 563,
+                            "hpos": 1228
+                        },
+                        {
+                            "type": "graphical_element",
+                            "id": "PAG_00000009_GE000008",
+                            "height": 12,
+                            "width": 1528,
+                            "vpos": 655,
+                            "hpos": 2426
+                        },
+                        {
+                            "type": "graphical_element",
+                            "id": "PAG_00000009_GE000009",
+                            "height": 190,
+                            "width": 2,
+                            "vpos": 23,
+                            "hpos": 5022
+                        },
+                        {
+                            "type": "graphical_element",
+                            "id": "PAG_00000009_GE000010",
+                            "height": 1,
+                            "width": 44,
+                            "vpos": 553,
+                            "hpos": 4030
+                        },
+                        {
+                            "type": "graphical_element",
+                            "id": "PAG_00000009_GE000011",
+                            "height": 10,
+                            "width": 1221,
+                            "vpos": 6822,
+                            "hpos": 16
+                        },
+                        {
+                            "type": "graphical_element",
+                            "id": "PAG_00000009_GE000012",
+                            "height": 10,
+                            "width": 1284,
+                            "vpos": 6822,
+                            "hpos": 1307
+                        },
+                        {
+                            "type": "graphical_element",
+                            "id": "PAG_00000009_GE000013",
+                            "height": 9,
+                            "width": 1147,
+                            "vpos": 6823,
+                            "hpos": 2661
+                        },
+                        {
+                            "type": "graphical_element",
+                            "id": "PAG_00000009_GE000014",
+                            "height": 10,
+                            "width": 1214,
+                            "vpos": 6822,
+                            "hpos": 3808
+                        },
+                        {
+                            "type": "graphical_element",
+                            "id": "PAG_00000009_GE000015",
+                            "height": 201,
+                            "width": 2,
+                            "vpos": 6608,
+                            "hpos": 0
+                        },
+                        {
+                            "type": "graphical_element",
+                            "id": "PAG_00000009_GE000016",
+                            "height": 38,
+                            "width": 1528,
+                            "vpos": 667,
+                            "hpos": 2426
+                        },
+                        {
+                            "type": "graphical_element",
+                            "id": "PAG_00000009_GE000017",
+                            "height": 45,
+                            "width": 1194,
+                            "vpos": 670,
+                            "hpos": 1135
+                        },
+                        {
+                            "type": "graphical_element",
+                            "id": "PAG_00000009_GE000018",
+                            "height": 45,
+                            "width": 1144,
+                            "vpos": 990,
+                            "hpos": 662
+                        },
+                        {
+                            "type": "graphical_element",
+                            "id": "PAG_00000009_GE000019",
+                            "height": 18,
+                            "width": 1056,
+                            "vpos": 1151,
+                            "hpos": 3447
+                        },
+                        {
+                            "type": "graphical_element",
+                            "id": "PAG_00000009_GE000020",
+                            "height": 3871,
+                            "width": 54,
+                            "vpos": 1146,
+                            "hpos": 1917
+                        },
+                        {
+                            "type": "graphical_element",
+                            "id": "PAG_00000009_GE000021",
+                            "height": 1138,
+                            "width": 18,
+                            "vpos": 5021,
+                            "hpos": 1965
+                        },
+                        {
+                            "type": "graphical_element",
+                            "id": "PAG_00000009_GE000022",
+                            "height": 2861,
+                            "width": 38,
+                            "vpos": 1158,
+                            "hpos": 3238
+                        },
+                        {
+                            "type": "graphical_element",
+                            "id": "PAG_00000009_GE000023",
+                            "height": 2133,
+                            "width": 30,
+                            "vpos": 4027,
+                            "hpos": 3269
+                        },
+                        {
+                            "type": "graphical_element",
+                            "id": "PAG_00000009_GE000024",
+                            "height": 12,
+                            "width": 499,
+                            "vpos": 4863,
+                            "hpos": 4032
+                        },
+                        {
+                            "type": "graphical_element",
+                            "id": "PAG_00000009_GE000025",
+                            "height": 12,
+                            "width": 316,
+                            "vpos": 4872,
+                            "hpos": 3343
+                        },
+                        {
+                            "type": "graphical_element",
+                            "id": "PAG_00000009_GE000026",
+                            "height": 30,
+                            "width": 1,
+                            "vpos": 5314,
+                            "hpos": 3282
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
