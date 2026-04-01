@@ -62,7 +62,7 @@ Ressources lexicales :
     - Aucune pour cette règle purement technique
 
 USAGE :
-    python 04_suppression_caracteres_controle.py INPUT [-o OUTPUT] [--stats] [--preserve-tabs] [--preserve-linebreaks]
+    python 04_controle.py INPUT [-o OUTPUT] [--stats] [--preserve-tabs] [--preserve-linebreaks]
 
 ARGUMENTS :
     INPUT                  Fichier d'entrée (texte brut) - OBLIGATOIRE
@@ -73,11 +73,11 @@ ARGUMENTS :
     --preserve-linebreaks  Préserve les retours chariot (\r) (par défaut: normalisés en \n)
 
 EXEMPLES :
-    python 04_suppression_caracteres_controle.py document.txt
-    python 04_suppression_caracteres_controle.py document.txt --stats
-    python 04_suppression_caracteres_controle.py data.txt -o propre.txt
-    python 04_suppression_caracteres_controle.py source.txt --preserve-tabs
-    python 04_suppression_caracteres_controle.py source.txt --preserve-linebreaks
+    python 04_controle.py document.txt
+    python 04_controle.py document.txt --stats
+    python 04_controle.py data.txt -o propre.txt
+    python 04_controle.py source.txt --preserve-tabs
+    python 04_controle.py source.txt --preserve-linebreaks
 
 Pièges Python et points d'attention :
     1. ENCODAGES : Les fichiers peuvent être en latin1 plutôt qu'utf-8
@@ -209,7 +209,7 @@ def normalize_special(char: str, preserve_tabs: bool = False,
         str: Caractère normalisé
         
     Note:
-        Cette fonction est appelée APRÈS is_control() a laissé passer le caractère.
+        Cette fonction est appelée APRÈS is_control().
         Elle gère les cas où on ne supprime pas mais on transforme.
         
     Exemple de branchement d'un flag sur une fonction :

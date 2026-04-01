@@ -31,7 +31,7 @@ Format du fichier de validation (TSV) :
 Workflow Numbers / export TSV :
     Ouvrir le .tsv dans Numbers, remplir la colonne 'decision',
     puis Fichier > Exporter > CSV (renommer en .tsv à l'export).
-    IMPORTANT : Avec certains logiciels utiliser "Exporter" et non "Enregistrer", puis ajouter
+    IMPORTANT : utiliser "Exporter" et non "Enregistrer", puis ajouter
     l'extension .tsv manuellement pour écraser le fichier d'origine.
 
 Mécanisme d'apprentissage :
@@ -52,36 +52,6 @@ Dépendances :
     - Dictionnaire Lefff (lefff_formes.txt) ou tout fichier un-mot-par-ligne
     - Modules standard : csv, json, re, sys, pathlib, collections, typing
 
-    USAGE :
-    python 15_decoupage.py [CORPUS]
-
-ARGUMENTS :
-    CORPUS    Fichier texte à traiter (optionnel)
-              Défaut : corpus_brut.txt (configurable via CORPUS_PATH en tête)
-
-EXEMPLES :
-    python 15_decoupage.py
-    python 15_decoupage.py mon_corpus.txt
-    python 15_decoupage.py annuaire_idi.txt
-
-PARAMÈTRES CONFIGURABLES (en tête du script) :
-    DICO_PATH        Chemin vers le dictionnaire (un mot par ligne)
-                     Défaut : "lefff_formes.txt"
-    MODELE_PATH      Fichier JSON de sauvegarde du modèle d'apprentissage
-                     Défaut : "modele_decoupe.json" (créé automatiquement)
-    NB_CYCLES_MAX    Nombre maximum de cycles avant arrêt automatique
-                     Défaut : 10
-    LIMITE_EXPORT    Nombre maximum de cas exportés par cycle pour validation
-                     Défaut : 1000 (augmenter si le corpus est grand)
-    PREFIXE_SORTIE   Préfixe des fichiers produits à chaque cycle
-                     Défaut : "corpus_corrige"
-                     Produit : corpus_corrige_cycle_1.txt, _cycle_2.txt...
-
-FICHIERS PRODUITS :
-    validation_decoupe_cycle_N.tsv   Propositions à valider (cycle N)
-    corpus_corrige_cycle_N.txt       Corpus après application cycle N
-    modele_decoupe.json              Modèle cumulé (persist entre sessions)
-
 ===============================================================================
 """
 
@@ -96,11 +66,44 @@ from typing import List, Set
 # =============================================================================
 # PARAMÈTRES CONFIGURABLES
 # =============================================================================
+# Tous les paramètres ajustables se trouvent ici.
+# Ne pas modifier le code en dessous de cette section pour un usage courant.
+#
+# Structure attendue :
+#
+#   MonProjet/               ← répertoire de travail, lancer depuis ici
+#       10_virgules.py
+#       15_decoupage.py      ← ce script
+#       16_inconnus.py
+#       Lexiq/
+#           lefff_formes.txt ← dictionnaire Lefff (110 000 formes fléchies)
+#
+# Pour utiliser un dictionnaire différent ou situé ailleurs :
+#   Modifier DICO_PATH ci-dessous.
+
+# Chemin vers le dictionnaire Lefff
+DICO_PATH = Path("Lexiq/lefff_formes.txt")
+
+# Fichier de sauvegarde du modèle d'apprentissage (JSON, créé automatiquement)
+# Persiste entre les sessions — conserve les décisions de validation
+MODELE_PATH = Path("modele_decoupe.json")
+
+# Nombre maximum de cycles avant arrêt automatique
+NB_CYCLES_MAX = 10
+
+# Nombre maximum de cas exportés par cycle pour validation humaine
+# Augmenter si le corpus est grand et que peu de cas remontent
+LIMITE_EXPORT = 1000
+
+# Préfixe des fichiers corpus produits à chaque cycle
+# Cycle N produit : PREFIXE_SORTIE_cycle_N.txt
+PREFIXE_SORTIE = "corpus_corrige"
+# =============================================================================
 # Modifier ces chemins selon votre environnement avant de lancer le script.
 
 # Chemin vers le fichier de dictionnaire (un mot par ligne, encodage utf-8)
 # Utiliser le Lefff (lefff_formes.txt) ou tout dictionnaire équivalent.
-DICO_PATH = Path("lefff_formes.txt")
+DICO_PATH = Path("Lexiq/lefff_formes.txt")
 
 # Fichier de sauvegarde du modèle d'apprentissage (JSON, créé automatiquement)
 MODELE_PATH = Path("modele_decoupe.json")

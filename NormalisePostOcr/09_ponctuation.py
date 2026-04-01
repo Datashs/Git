@@ -23,6 +23,9 @@ Description :
         → Nombre décimal
         → Initiale (C.L. de Bar, espace seulement après la seconde initiale)
         → présence dans des séquences OCR parasites
+    →  Un traitement automatique des espaces après les virgules pose des problèmes du même ordre
+    du fait de nombreuses exceptions possibles sur ce corpus (nombres, abréviations, 
+    structures tabulaires rendues par des virugles)
     Un traitement systèmétique par un regex présente des riques
     D'où la décision d'introduire des règles contextuelles.
     

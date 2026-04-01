@@ -44,6 +44,27 @@ Paramétrage possible :
     - ENCODAGE_LECTURE : 'utf-8' avec fallback 'latin1'
     - ENCODAGE_ECRITURE : 'utf-8' (toujours)
 
+USAGE :
+    python 01Normalise.py INPUT [-o OUTPUT] [--stats] [--form FORME]
+
+ARGUMENTS :
+    INPUT                  Fichier d'entrée (texte brut) - OBLIGATOIRE
+    -o, --output OUTPUT    Fichier de sortie (optionnel)
+                           Défaut : INPUT_nfc.txt
+    --stats                Affiche le taux de modification et la variation
+                           de taille
+    --form {NFC,NFD,NFKC,NFKD}
+                           Forme de normalisation Unicode (défaut : NFC)
+                           NFC  : composition canonique — recommandé
+                           NFD  : décomposition canonique
+                           NFKC : composition de compatibilité
+                           NFKD : décomposition de compatibilité
+
+EXEMPLES :
+    python 01Normalise.py annuaire.txt
+    python 01Normalise.py annuaire.txt -o annuaire_norm.txt
+    python 01Normalise.py annuaire.txt --stats
+
 Pièges Python et points d'attention :
     1. Les fichiers peuvent être encodés en latin1 (ISO-8859-1) plutôt qu'utf-8
        → On tente utf-8 d'abord, puis latin1 en secours
