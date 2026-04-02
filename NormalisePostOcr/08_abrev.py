@@ -93,7 +93,7 @@ Dépendances :
     - Aucune bibliothèque externe nécessaire (uniquement standard)
 
 USAGE :
-    python 08Points.py INPUT [-o OUTPUT] [--stats] [--custom FICHIER]
+    python 08_abrev.py INPUT [-o OUTPUT] [--stats] [--custom FICHIER]
 
 ARGUMENTS :
     INPUT                  Fichier d'entrée (texte brut) - OBLIGATOIRE
@@ -105,9 +105,9 @@ ARGUMENTS :
                            Lignes commençant par # ignorées (commentaires)
 
 EXEMPLES :
-    python 08Points.py document.txt --stats
-    python 08Points.py document.txt --custom mes_abrev.txt
-    python 08Points.py data.txt -o propre.txt
+    python 08_abrev.py document.txt --stats
+    python 08_abrev.py document.txt --custom mes_abrev.txt
+    python 08_abrev.py data.txt -o propre.txt
 
 Pièges Python et points d'attention :
     1. ORDRE DES RÈGLES : les abréviations longues avant les courtes.

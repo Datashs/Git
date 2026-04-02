@@ -1,13 +1,36 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 r"""
+
 Test du pipeline post-OCR sur un corpus fourni par l'utilisateur
 =================================================================
-Deux modes combinés :
+Ce script permet de vérifier le bon fonctionnement d'un pipeline de
+correction automatique de textes issus de l'OCR (reconnaissance optique
+de caractères). Il applique successivement 13 scripts de nettoyage sur
+un fichier texte fourni par l'utilisateur, et rend compte des résultats.
 
+À qui s'adresse ce script ?
+    À toute personne souhaitant tester le pipeline sur son propre corpus
+    avant de l'utiliser en production, sans avoir à lancer les 13 scripts
+    un par un à la main.
+
+Ce qu'il fait concrètement :
+    1. Charge le fichier texte indiqué en argument.
+    2. Applique dans l'ordre les scripts 02 à 14 (apostrophes, tirets,
+       espaces, ordinaux, mois, abréviations, ponctuation, etc.).
+    3. Vérifie après chaque étape que les paragraphes sont bien préservés
+       (mode robustesse).
+    4. Affiche optionnellement le détail de chaque correction appliquée
+       pour permettre une vérification humaine (mode audit).
+    5. Peut sauvegarder le texte final corrigé dans un fichier de sortie.
+
+Ce qu'il ne fait pas :
+    Il n'effectue pas les étapes manuelles 15 (mots collés) et 16 (formes
+    inconnues), qui nécessitent une intervention humaine.
+
+Deux modes combinés :
   MODE ROBUSTESSE : vérifie que chaque script tourne sans erreur
     et que les paragraphes sont préservés.
-
   MODE AUDIT : affiche toutes les corrections appliquées,
     script par script, pour vérification humaine.
 
@@ -25,9 +48,24 @@ import re
 import argparse
 from pathlib import Path
 
+
 # =============================================================================
 # PARAMÈTRES
 # =============================================================================
+
+# Répertoire contenant les scripts du pipeline (02apost.py, 03tirets.py, etc.)
+# Par défaut : "." signifie le répertoire courant, c'est-à-dire l'endroit depuis
+# lequel vous lancez la commande — pas forcément l'endroit où se trouve ce fichier.
+#
+# Si vos scripts sont ailleurs, indiquez le chemin ici. Exemples :
+#   SCRIPTS_DIR = Path(".")                        # répertoire courant (défaut)
+#   SCRIPTS_DIR = Path(__file__).parent            # même dossier que ce script
+#   SCRIPTS_DIR = Path("/home/alice/pipeline")     # chemin absolu (Linux/Mac)
+#   SCRIPTS_DIR = Path(r"C:\Users\Alice\pipeline") # chemin absolu (Windows)
+#   SCRIPTS_DIR = Path("../pipeline")              # chemin relatif au répertoire courant
+#
+# Conseil : si vous n'êtes pas sûr(e), placez tous les fichiers .py dans le même
+# dossier et utilisez Path(__file__).parent — cela fonctionnera toujours.
 
 SCRIPTS_DIR = Path(".")
 
@@ -185,7 +223,7 @@ Exemples :
     print(f"\n  Chargement des scripts...", end=' ', flush=True)
     try:
         ns02 = charger_script('02apost.py')
-        ns03 = charger_script('03Tirets.py')
+        ns03 = charger_script('03tirets.py')
         ns04 = charger_script('04_controle.py')
         ns05 = charger_script('05_espaces.py')
         ns06 = charger_script('06_ordinaux.py')

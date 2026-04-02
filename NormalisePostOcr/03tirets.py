@@ -58,7 +58,7 @@ Ressources lexicales :
     - Aucune pour cette règle purement typographique
 
 USAGE :
-    python 03_normalisation_tirets.py INPUT [-o OUTPUT] [--stats]
+    python 03tiret.py INPUT [-o OUTPUT] [--stats]
 
 ARGUMENTS :
     INPUT                  Fichier d'entrée (texte brut) - OBLIGATOIRE
@@ -68,10 +68,10 @@ ARGUMENTS :
                            (recommandé pour la première utilisation)
 
 EXEMPLES :
-    python 03_normalisation_tirets.py document.txt
-    python 03_normalisation_tirets.py document.txt --stats
-    python 03_normalisation_tirets.py data.txt -o propre.txt
-    python 03_normalisation_tirets.py source.txt -o dest.txt --stats
+    python 03tirets.py document.txt
+    python 03tirets.py document.txt --stats
+    python 03tirets.py data.txt -o propre.txt
+    python 03tirets.py source.txt -o dest.txt --stats
 
 Pièges Python et points d'attention :
     1. ENCODAGES : Les fichiers peuvent être en latin1 plutôt qu'utf-8

@@ -59,7 +59,7 @@ Ressources lexicales :
     - Aucune (liste fermée des 12 mois français)
 
 USAGE :
-    python 07_mois_minuscules.py INPUT [-o OUTPUT] [--stats]
+    python 07_mois.py INPUT [-o OUTPUT] [--stats]
 
 ARGUMENTS :
     INPUT                  Fichier d'entrée (texte brut) - OBLIGATOIRE
@@ -70,9 +70,9 @@ ARGUMENTS :
                            l'absence de faux positifs
 
 EXEMPLES :
-    python 07_mois_minuscules.py document.txt
-    python 07_mois_minuscules.py document.txt --stats
-    python 07_mois_minuscules.py data.txt -o propre.txt
+    python 07_mois.py document.txt
+    python 07_mois.py document.txt --stats
+    python 07_mois.py data.txt -o propre.txt
 
 Pièges Python et points d'attention :
     1. LISTE FERMÉE vs REGEX GÉNÉRIQUE :

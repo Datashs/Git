@@ -62,7 +62,7 @@ Ressources lexicales :
     - Aucune pour cette règle purement typographique
 
 USAGE :
-    python 05_normalisation_espaces.py INPUT [-o OUTPUT] [--stats] [--preserve-indent] [--min-space N]
+    python 05_espaces.py INPUT [-o OUTPUT] [--stats] [--preserve-indent] [--min-space N]
 
 ARGUMENTS :
     INPUT                  Fichier d'entrée (texte brut) - OBLIGATOIRE
@@ -74,11 +74,11 @@ ARGUMENTS :
                            Exemple : --min-space 3 laisse intacts les doubles espaces
 
 EXEMPLES :
-    python 05_normalisation_espaces.py document.txt
-    python 05_normalisation_espaces.py document.txt --stats
-    python 05_normalisation_espaces.py data.txt -o propre.txt
-    python 05_normalisation_espaces.py source.txt --preserve-indent
-    python 05_normalisation_espaces.py source.txt --min-space 3
+    python 05_espaces.py document.txt
+    python 05_espaces.py document.txt --stats
+    python 05_espaces.py data.txt -o propre.txt
+    python 05_espaces.py source.txt --preserve-indent
+    python 05_espaces.py source.txt --min-space 3
 
 Pièges Python et points d'attention :
     1. ENCODAGES : Les fichiers peuvent être en latin1 plutôt qu'utf-8

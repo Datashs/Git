@@ -3,12 +3,33 @@
 r"""
 ===============================================================================
 SCRIPT 15 : DÉCOUPAGE INTELLIGENT DES MOTS COLLÉS
-Avec apprentissage par renforcement (cas positifs ET négatifs)
+Avec apprentissage cumulatif par renforcement (cas positifs ET négatifs)
 ===============================================================================
 
 Description :
     Détecte et corrige les mots collés produits par l'OCR ("ledroit" → "le droit")
     grâce à un cycle d'apprentissage supervisé par l'utilisateur.
+    Les décisions sont mémorisées dans un fichier JSON et réutilisées
+    automatiquement pour tous les corpus (ou fichiers) du même projet.
+
+À qui s'adresse ce script ?
+    À toute personne traitant un ensemble de documents OCR de même nature
+    (même époque, même source, même domaine). Plus on traite de documents,
+    moins il y a de cas à valider manuellement : le modèle s'enrichit à chaque
+    corpus traité.
+
+Ce qu'il fait concrètement :
+    1. Charge le modèle d'apprentissage existant (s'il y en a un).
+    2. Analyse le corpus et propose les découpages douteux non encore connus.
+    3. Exporte ces propositions dans un fichier TSV pour validation humaine.
+    4. Réingère le fichier validé et mémorise les nouvelles décisions.
+    5. Applique tous les découpages connus au corpus et écrit le résultat.
+    6. Sauvegarde le modèle mis à jour pour les corpus suivants.
+    7. Répéter jusqu'à satisfaction (plusieurs cycles possibles par corpus).
+
+Ce qu'il ne fait pas :
+    Il ne prend aucune décision de découpage sans validation humaine préalable.
+    Toute nouvelle forme passe par le fichier TSV avant d'être appliquée.
 
 Workflow en cycles :
     1. Le script analyse le corpus et propose des découpages douteux
@@ -17,10 +38,17 @@ Workflow en cycles :
     4. Le script réingère le fichier validé et mémorise les décisions
     5. Il applique les découpages validés au corpus
     6. Répéter jusqu'à satisfaction
+Remarque : Plusieurs cycles sont nécessaires car on ne peut pas traiter tous les cas
+    en une seule fois : LIMITE_EXPORT fixe un plafond par cycle pour garder
+    la validation humaine gérable.
+    Ex : avec LIMITE_EXPORT = 1000 et 2 300 collages détectés,
+         il faut au moins 3 cycles pour tous les traiter.
+
+    On continue jusqu'à ce qu'un cycle ne produise plus aucun cas nouveau.
 
 Format du fichier de validation (TSV) :
     Colonnes : mot_colle | suggestion | contexte | decision | correction
-    
+
     Colonne 'decision' — valeurs acceptées :
       y  ou ok    → découpe correcte, on l'apprend et on l'applique
       n  ou non   → faux positif, ce mot ne sera plus jamais découpé
@@ -34,11 +62,19 @@ Workflow Numbers / export TSV :
     IMPORTANT : utiliser "Exporter" et non "Enregistrer", puis ajouter
     l'extension .tsv manuellement pour écraser le fichier d'origine.
 
-Mécanisme d'apprentissage :
+Mécanisme d'apprentissage cumulatif :
     - Les décisions 'y'/'ok' sont mémorisées dans MODELE_PATH (JSON)
     - Les décisions 'n'/'non' le sont aussi : le mot n'est plus proposé
     - Les corrections 'c' remplacent la suggestion par la saisie manuelle
-    - Le modèle persiste entre les cycles et entre les sessions
+    - Le modèle persiste entre les cycles, entre les sessions ET entre les corpus
+    - Au fil du temps, de moins en moins de cas remontent à la validation :
+      ce qui a déjà été tranché n'est plus soumis à l'utilisateur
+
+    IMPORTANT — un modèle par type de corpus :
+      Les erreurs OCR varient selon les sources et les époques. Un corpus de
+      presse des années 1950 n'aura pas les mêmes mots collés qu'un corpus
+      juridique du XIXe siècle. Utilisez des fichiers de modèle distincts
+      pour des corpus de nature différente (voir MODELE_PATH ci-dessous).
 
 Algorithme de découpe :
     Méthode 1 — mot-outil + mot plein :
@@ -51,6 +87,10 @@ Algorithme de découpe :
 Dépendances :
     - Dictionnaire Lefff (lefff_formes.txt) ou tout fichier un-mot-par-ligne
     - Modules standard : csv, json, re, sys, pathlib, collections, typing
+
+Usage :
+    python 15_decoupage.py mon_corpus.txt
+    python 15_decoupage.py mon_corpus.txt  (utilise 'corpus_brut.txt' par défaut)
 
 ===============================================================================
 """
@@ -81,31 +121,23 @@ from typing import List, Set
 # Pour utiliser un dictionnaire différent ou situé ailleurs :
 #   Modifier DICO_PATH ci-dessous.
 
-# Chemin vers le dictionnaire Lefff
-DICO_PATH = Path("Lexiq/lefff_formes.txt")
-
-# Fichier de sauvegarde du modèle d'apprentissage (JSON, créé automatiquement)
-# Persiste entre les sessions — conserve les décisions de validation
-MODELE_PATH = Path("modele_decoupe.json")
-
-# Nombre maximum de cycles avant arrêt automatique
-NB_CYCLES_MAX = 10
-
-# Nombre maximum de cas exportés par cycle pour validation humaine
-# Augmenter si le corpus est grand et que peu de cas remontent
-LIMITE_EXPORT = 1000
-
-# Préfixe des fichiers corpus produits à chaque cycle
-# Cycle N produit : PREFIXE_SORTIE_cycle_N.txt
-PREFIXE_SORTIE = "corpus_corrige"
-# =============================================================================
-# Modifier ces chemins selon votre environnement avant de lancer le script.
-
 # Chemin vers le fichier de dictionnaire (un mot par ligne, encodage utf-8)
 # Utiliser le Lefff (lefff_formes.txt) ou tout dictionnaire équivalent.
 DICO_PATH = Path("Lexiq/lefff_formes.txt")
 
-# Fichier de sauvegarde du modèle d'apprentissage (JSON, créé automatiquement)
+# Fichier de mémorisation des décisions de découpage (JSON, créé automatiquement)
+# Ce fichier est CUMULATIF : il s'enrichit à chaque cycle et à chaque corpus
+# traité dans le même projet. Plus vous traitez de documents du même type,
+# moins il y a de cas à valider manuellement.
+#
+# IMPORTANT : si vous travaillez sur des corpus de nature différente
+# (ex : textes juridiques ET presse), utilisez des fichiers séparés —
+# les erreurs OCR ne sont pas les mêmes d'un type de source à l'autre.
+#
+# Convention de nommage suggérée :
+#   MODELE_PATH = Path("modele_decoupe_juridique.json")
+#   MODELE_PATH = Path("modele_decoupe_presse1950.json")
+#   MODELE_PATH = Path("modele_decoupe_litterature.json")
 MODELE_PATH = Path("modele_decoupe.json")
 
 # Nombre maximum de cycles d'apprentissage avant arrêt automatique
@@ -136,7 +168,12 @@ class ApprentissageDecoupe:
     - stats            : compteurs pour le reporting
 
     La persistance est assurée par sauvegarder()/charger() au format JSON.
-    Ainsi le modèle survit entre les sessions et entre les cycles.
+    Le modèle survit entre les cycles, entre les sessions et entre les corpus
+    d'un même projet : plus on traite de documents, moins il y a de cas
+    nouveaux à soumettre à la validation humaine.
+
+    Pour des corpus de nature différente, utiliser des fichiers JSON distincts
+    (voir MODELE_PATH en tête de script).
     """
 
     def __init__(self):
@@ -210,6 +247,11 @@ class ApprentissageDecoupe:
         r"""
         Charge le modèle depuis un JSON existant.
         Ne fait rien si le fichier n'existe pas (premier lancement).
+
+        À chaque nouveau corpus du même projet, ce chargement réinjecte
+        automatiquement toutes les décisions déjà validées : les mots collés
+        connus sont appliqués sans passer par la validation humaine, et les
+        faux positifs connus ne sont plus proposés.
         """
         if chemin.exists():
             with open(chemin, 'r', encoding='utf-8') as f:
@@ -636,3 +678,6 @@ if __name__ == "__main__":
     else:
         print(f"\n✅ Apprentissage terminé après {nb_cycles} cycle(s).")
         print(f"   Modèle sauvegardé dans : {MODELE_PATH}")
+        print(f"   Ce modèle sera réutilisé automatiquement pour les prochains")
+        print(f"   corpus du même projet — les décisions déjà validées ne")
+        print(f"   remonteront plus à la validation humaine.")

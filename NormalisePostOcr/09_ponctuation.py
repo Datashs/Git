@@ -83,7 +83,7 @@ Dépendances :
     - Aucune bibliothèque externe nécessaire (uniquement standard)
 
 USAGE :
-    python 09_ponctuation_collee.py INPUT [-o OUTPUT] [--stats] [--lang fr|en]
+    python 09_ponctuation.py INPUT [-o OUTPUT] [--stats] [--lang fr|en]
 
 ARGUMENTS :
     INPUT                  Fichier d'entrée (texte brut) - OBLIGATOIRE
@@ -95,10 +95,10 @@ ARGUMENTS :
                            en : espace après seulement (": ")
 
 EXEMPLES :
-    python 09_ponctuation_collee.py document.txt
-    python 09_ponctuation_collee.py document.txt --stats
-    python 09_ponctuation_collee.py document.txt --lang en
-    python 09_ponctuation_collee.py data.txt -o propre.txt
+    python 09_ponctuation.py document.txt
+    python 09_ponctuation.py document.txt --stats
+    python 09_ponctuation.py document.txt --lang en
+    python 09_ponctuation.py data.txt -o propre.txt
 
 Pièges Python et points d'attention :
     1. TRAITEMENT DE DROITE À GAUCHE :

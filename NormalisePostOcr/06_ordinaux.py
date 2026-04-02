@@ -91,7 +91,7 @@ Dépendances :
     - Aucune bibliothèque externe nécessaire (uniquement standard)
 
 USAGE :
-    python 06_normalisation_nombres_ordinaux.py INPUT [-o OUTPUT] [--stats] [--roman]
+    python 06_ordinaux.py INPUT [-o OUTPUT] [--stats] [--roman]
 
 ARGUMENTS :
     INPUT                  Fichier d'entrée (texte brut) - OBLIGATOIRE
@@ -105,9 +105,9 @@ ARGUMENTS :
                            ⚠️  Déconseillé en production (voir doc ci-dessous)
 
 EXEMPLES :
-    python 06_normalisation_nombres_ordinaux.py document.txt --stats
-    python 06_normalisation_nombres_ordinaux.py document.txt --roman
-    python 06_normalisation_nombres_ordinaux.py data.txt -o propre.txt
+    python 06_ordinaux.py document.txt --stats
+    python 06_ordinaux.py document.txt --roman
+    python 06_ordinaux.py data.txt -o propre.txt
 
 Pièges Python et points d'attention :
     1. ORDRE DES CORRECTIONS : crucial pour éviter les chevauchements.

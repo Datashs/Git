@@ -55,7 +55,7 @@ Ressources lexicales :
     - Aucune pour cette règle purement typographique
 
 USAGE :
-    python 02_normalisation_apostrophes.py INPUT [-o OUTPUT] [--stats]
+    python 02apost.py INPUT [-o OUTPUT] [--stats]
 
 ARGUMENTS :
     INPUT                  Fichier d'entrée (texte brut) - OBLIGATOIRE
