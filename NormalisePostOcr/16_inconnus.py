@@ -14,6 +14,39 @@ Description :
     Le script complète le script 15 (mots collés) : là où le 15 détecte
     les fusions ("ledroit"), le 16 détecte les déformations ("congrés").
 
+À qui s'adresse ce script ?
+    À toute personne traitant un ensemble de documents OCR de même nature
+    (même époque, même source, même domaine). Les erreurs OCR sont souvent
+    systématiques : un même scanner déforme toujours les mêmes caractères
+    de la même façon. Le modèle d'apprentissage capitalise sur cette
+    régularité — plus on traite de documents, moins il y a de cas nouveaux
+    à valider manuellement.
+
+Ce qu'il fait concrètement :
+    1. Charge le modèle d'apprentissage existant (s'il y en a un).
+    2. Analyse le corpus et repère les formes absentes du dictionnaire,
+       après filtrage automatique des faux suspects (noms propres, chiffres,
+       termes étrangers, acronymes, mots composés valides, etc.).
+    3. Exporte ces formes en TSV trié par fréquence (les plus rentables
+       à corriger en premier) pour validation humaine.
+    4. Réingère les décisions validées et met à jour le modèle.
+    5. Applique toutes les corrections connues au corpus et écrit le résultat.
+    6. Sauvegarde le modèle pour les corpus suivants.
+
+Ce qu'il ne fait pas :
+    Il ne propose pas de correction automatique — l'utilisateur doit saisir
+    la bonne forme dans la colonne 'correction' du TSV. Le script corrige
+    mais ne devine pas.
+
+Pourquoi plusieurs cycles sont-ils nécessaires ?
+    La principale raison est la limite LIMITE_EXPORT : on ne peut traiter
+    qu'un nombre fixe de formes par cycle pour garder la validation humaine
+    gérable. Les formes restantes passent au cycle suivant.
+    Ex : avec LIMITE_EXPORT = 1000 et 2 400 formes suspectes détectées,
+         il faut au moins 3 cycles pour toutes les traiter.
+
+    On continue jusqu'à ce qu'un cycle ne produise plus aucune forme nouvelle.
+
 Workflow en cycles :
     1. Le script analyse le corpus et exporte les formes suspectes en TSV
     2. L'utilisateur valide chaque forme dans Numbers ou Excel :
@@ -24,12 +57,31 @@ Workflow en cycles :
     4. Il applique les corrections validées au corpus
     5. Répéter jusqu'à ce qu'aucune nouvelle forme suspecte n'apparaisse
 
+Mécanisme d'apprentissage cumulatif :
+    - Les corrections sont mémorisées dans MODELE_PATH (JSON)
+    - Les formes validées comme correctes (n/non) le sont aussi : elles ne
+      remonteront plus jamais à la validation
+    - Le modèle persiste entre les cycles, entre les sessions ET entre les
+      corpus d'un même projet
+    - Au fil du temps, de moins en moins de cas remontent à la validation :
+      ce qui a déjà été tranché n'est plus soumis à l'utilisateur
+
+    IMPORTANT — un modèle par type de corpus :
+      Les erreurs OCR varient selon les sources et les époques. Un corpus
+      numérisé par un scanner des années 1990 n'aura pas les mêmes
+      déformations qu'un corpus numérisé en 2010. Utilisez des fichiers
+      de modèle distincts pour des corpus de nature différente
+      (voir MODELE_PATH ci-dessous).
+
 Seuils (configurables en tête) :
     SEUIL_MIN : occurrences minimum pour signaler une forme (défaut : 2)
                 Les hapax (1 occurrence) sont ignorés — trop de bruit.
+                Une erreur OCR aléatoire ne se répète pas ; une erreur
+                systématique, si.
     SEUIL_MAX : occurrences maximum (défaut : 10)
                 Au-delà, la forme est probablement un nom propre récurrent
                 ou un terme technique du domaine, pas une erreur OCR.
+                Augmenter si le corpus est très spécialisé.
 
 Filtres automatiques :
     - Tokens de moins de 4 caractères → ignorés (trop courts pour être fiables)
@@ -39,7 +91,12 @@ Filtres automatiques :
     - Mots avec apostrophe dont une partie est connue → ignorés
     - Majuscule hors début de phrase → probablement nom propre, ignoré
     - Tout en majuscules → acronyme, ignoré
-    - Détection de langue (langid ou heuristiques) → tokens non-français ignorés
+    - Détection de langue (langid ou heuristiques) → tokens non-français ignorés. 
+        Ce choix est lié aux particuliarités du corpus. 
+        Il ne comprend pas de partie rédactionnelle en une autre langue que le français,
+        mais les références à des titres ou textes en langue étrangère sont fréquentes. 
+        Une autre stratégie serait nécessaire dans le cas d'un corpus plurilingue. 
+
 
 Dépendance optionnelle — langid :
     Si langid est installé (pip install langid), le script l'utilise pour :
@@ -64,7 +121,10 @@ Cohérence avec le script 15 :
     Les deux scripts utilisent le même format TSV (séparateur tabulation)
     et le même mécanisme de cycle d'apprentissage (JSON persistant).
     Le script 15 traite les mots collés, le 16 traite les déformations.
-    Ils peuvent être appliqués dans n'importe quel ordre ou en parallèle.
+    Ils peuvent être appliqués dans n'importe quel ordre ou en parallèle,
+    mais il est recommandé de traiter les mots collés (15) en premier :
+    un collage non résolu peut masquer une déformation que le 16 aurait
+    autrement détectée.
 
 Dépendances :
     - Dictionnaire Lefff (lefff_formes.txt) ou tout fichier un-mot-par-ligne
@@ -73,14 +133,10 @@ Dépendances :
                          collections, typing
 
 USAGE :
-    python 16_inconnus.py [CORPUS]
-
-ARGUMENTS :
-    CORPUS    Fichier texte à traiter (optionnel)
-              Défaut : corpus_brut.txt
+    python 16_inconnus.py mon_corpus.txt
+    python 16_inconnus.py  (utilise 'corpus_brut.txt' par défaut)
 
 EXEMPLES :
-    python 16_inconnus.py
     python 16_inconnus.py annuaire_idi.txt
     python 16_inconnus.py mon_corpus.txt
 
@@ -96,7 +152,7 @@ PARAMÈTRES CONFIGURABLES (en tête du script) :
 FICHIERS PRODUITS :
     formes_inconnues_cycle_N.tsv    Formes à valider (cycle N)
     PREFIXE_SORTIE_cycle_N.txt      Corpus après application cycle N
-    MODELE_PATH.json                Modèle cumulé (persiste entre sessions)
+    MODELE_PATH                     Modèle cumulatif (persiste entre sessions)
 
 ===============================================================================
 """
@@ -137,41 +193,30 @@ except ImportError:
 # Pour utiliser un dictionnaire différent ou situé ailleurs :
 #   Modifier DICO_PATH ci-dessous.
 
-# Chemin vers le dictionnaire Lefff
+# Chemin vers le fichier de dictionnaire (un mot par ligne, encodage utf-8)
+# Utiliser le Lefff (lefff_formes.txt) ou tout dictionnaire équivalent.
 DICO_PATH = Path("Lexiq/lefff_formes.txt")
 
-# Fichier de sauvegarde du modèle d'apprentissage (JSON, créé automatiquement)
-# Persiste entre les sessions — conserve les décisions de validation
+# Fichier de mémorisation des décisions (JSON, créé automatiquement)
+# Ce fichier est CUMULATIF : il s'enrichit à chaque cycle et à chaque corpus
+# traité dans le même projet. Plus vous traitez de documents du même type,
+# moins il y a de cas à valider manuellement.
+#
+# IMPORTANT : si vous travaillez sur des corpus de nature différente
+# (ex : documents numérisés par des scanners différents, ou d'époques
+# différentes), utilisez des fichiers séparés — les déformations OCR
+# ne sont pas les mêmes d'une source à l'autre.
+#
+# Convention de nommage suggérée :
+#   MODELE_PATH = Path("modele_inconnus_juridique.json")
+#   MODELE_PATH = Path("modele_inconnus_presse1950.json")
+#   MODELE_PATH = Path("modele_inconnus_litterature.json")
 MODELE_PATH = Path("modele_formes_inconnues.json")
 
 # Seuil minimum d'occurrences pour signaler une forme suspecte
 # 1 → tous les hapax remontés (beaucoup de bruit)
 # 2 → seulement les erreurs répétées (recommandé)
-SEUIL_MIN = 2
-
-# Seuil maximum d'occurrences
-# Au-delà, la forme est probablement un terme du domaine, pas une erreur OCR
-SEUIL_MAX = 10
-
-# Nombre maximum de formes exportées par cycle pour validation humaine
-LIMITE_EXPORT = 1000
-
-# Préfixe des fichiers corpus produits à chaque cycle
-PREFIXE_SORTIE = "corpus_inconnus"
-
-# Nombre maximum de cycles avant arrêt automatique
-NB_CYCLES_MAX = 10
-# =============================================================================
-
-# Chemin vers le fichier de dictionnaire (un mot par ligne, encodage utf-8)
-DICO_PATH = Path("Lexiq/lefff_formes.txt")
-
-# Fichier de sauvegarde du modèle d'apprentissage (JSON, créé automatiquement)
-MODELE_PATH = Path("modele_formes_inconnues.json")
-
-# Seuil minimum d'occurrences pour signaler une forme suspecte
-# Valeur 1 → tous les hapax remontés (beaucoup de bruit)
-# Valeur 2 → seulement les erreurs répétées (recommandé)
+# Une erreur OCR aléatoire ne se répète pas ; une erreur systématique, si.
 SEUIL_MIN = 2
 
 # Seuil maximum d'occurrences
@@ -259,11 +304,17 @@ class ApprentissageFormes:
     Mémorise les décisions de l'utilisateur sur les formes inconnues.
 
     Deux catégories :
-    - corrections : dict  "congrés" → "congrès"  (décisions y/ok)
+    - corrections : dict  "congrés" → "congrès"       (décisions y/ok)
     - ignorer     : set   {"Hautefeuille", "ratione"}  (décisions n/non)
 
     La persistance est assurée par sauvegarder()/charger() au format JSON.
-    Le modèle survit entre les sessions et s'enrichit à chaque cycle.
+    Le modèle survit entre les cycles, entre les sessions et entre les corpus
+    d'un même projet : les corrections déjà validées sont appliquées
+    automatiquement sans repasser par la validation humaine, et les formes
+    déclarées valides (noms propres, termes étrangers) ne remontent plus.
+
+    Pour des corpus de nature différente, utiliser des fichiers JSON distincts
+    (voir MODELE_PATH en tête de script).
     """
 
     def __init__(self):
@@ -321,7 +372,13 @@ class ApprentissageFormes:
             json.dump(data, f, indent=2, ensure_ascii=False)
 
     def charger(self, chemin: Path):
-        r"""Charge le modèle depuis un JSON existant. Ne fait rien si absent."""
+        r"""Charge le modèle depuis un JSON existant. Ne fait rien si absent.
+
+        À chaque nouveau corpus du même projet, ce chargement réinjecte
+        automatiquement toutes les décisions déjà validées : les corrections
+        connues sont appliquées sans validation, et les formes déclarées
+        valides (noms propres, termes étrangers) ne sont plus proposées.
+        """
         if chemin.exists():
             with open(chemin, 'r', encoding='utf-8') as f:
                 data = json.load(f)
@@ -799,3 +856,6 @@ if __name__ == "__main__":
     else:
         print(f"\n✅ Traitement terminé après {nb_cycles} cycle(s).")
         print(f"   Modèle sauvegardé dans : {MODELE_PATH}")
+        print(f"   Ce modèle sera réutilisé automatiquement pour les prochains")
+        print(f"   corpus du même projet — corrections et formes ignorées déjà")
+        print(f"   validées ne remonteront plus à la validation humaine.")

@@ -1,0 +1,45 @@
+RAPPORT DE PARSING — TABLE DES MATIÈRES
+==================================================
+Fichier source    : /home/claude/toc_corrigee.txt
+Généré le         : 2026-04-11 20:53
+==================================================
+
+── Statistiques ────────────────────────────────
+  Entrées totales  : 174
+  Niveau 1 (Parties)         : 5
+  Niveau 2 (Sections)        : 34
+  Niveau 3 (Sous-sections)   : 122
+  Niveau 4 (Entrées fines)   : 7
+  Niveau 0 (Non classés)     : 6
+  Pages en chiffres romains  : 4
+  Entrées sans numéro de page: 5
+
+── Entrées non classées (niveau 0) ─────────────
+   Ces entrées n'ont pas correspondu à un patron
+   connu. Vérifier et corriger dans toc_final.json
+   ou ajouter une règle dans t3_parse_toc.py.
+
+  ligne    3 │ page  -13 │ ADDITIONS. — 1. — Noms et adresses des membres et associés d
+  ligne   10 │ page    1 │ STATUTS, RÈGLEMENT ET COMPOSITION DES DIVERSES COMMISSIONS D
+  ligne   20 │ page   11 │ NOTICES ET DOCUMENTS RELATIFS À L'HISTOIRE DE L'INSTITUT ET 
+  ligne  126 │ page  163 │ Le Touzé (Charles)
+  ligne  188 │ page  187 │ TABLEAU CHRONOLOGIQUE DES FAITS LES PLUS IMPORTANTS RELATIFS
+  ligne  232 │ page  262 │ bis. — 5 Février 1875. — Déclaration monétaire entre la Belg
+
+── Anomalies détectées ──────────────────────────
+  Entrée 2 ('ADDITIONS. — 1. — Noms et adresses des m') : niveau non classé (0).
+  Entrée 5 ('Première Partie.') : numéro de page absent.
+  Entrée 6 ('STATUTS, RÈGLEMENT ET COMPOSITION DES DI') : niveau non classé (0).
+  Entrée 10 ('Deuxième Partie.') : numéro de page absent.
+  Entrée 11 ("NOTICES ET DOCUMENTS RELATIFS À L'HISTOI") : niveau non classé (0).
+  Entrée 64 ('Le Touzé (Charles)') : niveau non classé (0).
+  Entrée 94 ('Troisième Partie.') : numéro de page absent.
+  Entrée 95 ('TABLEAU CHRONOLOGIQUE DES FAITS LES PLUS') : niveau non classé (0).
+  Entrée 114 ('Quatrième Partie.') : numéro de page absent.
+  Entrée 117 ('bis. — 5 Février 1875. — Déclaration mon') : niveau non classé (0).
+  Entrée 138 ('Cinquième Partie.') : numéro de page absent.
+
+──────────────────────────────────────────────────
+Le fichier toc_final.json a été produit même en
+présence d'anomalies : il doit être inspecté avant
+d'être passé à build_sections().
