@@ -5,6 +5,18 @@ Développés sur l'*Annuaire de l'Institut de droit international* (1877), gén�
 
 ---
 
+# Gallica Post-OCR Pipeline
+
+Pipeline de normalisation post-OCR pour corpus historiques français du XIXe siècle issus de Gallica.
+Conçu pour le traitement reproductible des corpus historiques, avec contrôle philologique explicite et validation humaine intégrée.
+
+## Fonctionnalités
+normalisation OCR ;
+corrections auditables ;
+tests ;
+validation humaine ;
+rapports détaillés.
+
 ## Pourquoi ces scripts
 
 Les textes récupérés sur Gallica au format texte brut sont souvent inutilisables directement pour l'analyse. L'OCR produit des erreurs systématiques et prévisibles : apostrophes non standard, tirets typographiques variés, ordinaux mal formés, ligatures manquantes, ponctuations collées, guillemets parasites, chiffres romains déformés. Sur un corpus de 116 000 mots, ces erreurs représentent plusieurs milliers de corrections à apporter.
